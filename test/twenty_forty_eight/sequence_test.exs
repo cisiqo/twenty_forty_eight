@@ -3,9 +3,9 @@ defmodule TwentyFortyEight.SequenceTest do
 
   alias TwentyFortyEight.Sequence
 
-  describe "pad_list" do
+  describe "pad" do
     test "adds nothing when the list is the correct length" do
-      assert Sequence.pad_list([1, 2, 3], 3) == [1, 2, 3]
+      assert Sequence.pad([1, 2, 3], 3) == [1, 2, 3]
     end
   end
 

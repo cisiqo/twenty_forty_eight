@@ -3,6 +3,28 @@ defmodule TwentyFortyEight.BoardTest do
 
   alias TwentyFortyEight.Board
 
+  describe "new" do
+    test "sets width and height correctly" do
+      board = Board.new(4, 4)
+      assert board.width == 4
+      assert board.height == 4
+    end
+
+    test "initializes the board to the right size" do
+      board = Board.new(4, 4)
+
+      assert Enum.count(board.data) == 16
+    end
+
+    test "board contains two randomly placed values, either 2 or 4" do
+      board = Board.new(4, 4)
+      numbers = Enum.reject(board.data, fn x -> x == nil end)
+
+      assert numbers |> Enum.count() == 2
+      assert Enum.sort(numbers) in [[2, 2], [2, 4], [4, 4]]
+    end
+  end
+
   describe "shift(:left)" do
     test "simple" do
       board = %Board{

@@ -17,7 +17,7 @@ defmodule TwentyFortyEight.Sequence do
     sequence
     |> Enum.reject(fn v -> v == nil end)
     |> combined([])
-    |> pad_list(sequence_len)
+    |> pad(sequence_len)
   end
 
   defp combined([], acc), do: acc |> Enum.reverse() |> List.flatten()
@@ -26,10 +26,10 @@ defmodule TwentyFortyEight.Sequence do
   defp combined([h | t], a), do: combined(t, [h | a])
 
   @doc """
-  Pad a `list` to a the length of `count` with `value` as the padding character.
+  Pad a `list` to a the length of `count` with `with` as the padding character.
   """
-  def pad_list(list, count, value \\ nil) do
+  def pad(list, count, with \\ nil) do
     add_count = count - length(list)
-    [list | Enum.map(1..add_count//1, fn _ -> value end)] |> List.flatten()
+    [list | Enum.map(1..add_count//1, fn _ -> with end)] |> List.flatten()
   end
 end
