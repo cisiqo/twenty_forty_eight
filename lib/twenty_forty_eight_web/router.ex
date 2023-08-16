@@ -17,6 +17,7 @@ defmodule TwentyFortyEightWeb.Router do
   scope "/", TwentyFortyEightWeb do
     pipe_through :browser
 
+    live "/", Game
   end
 
   # Other scopes may use custom stacks.
