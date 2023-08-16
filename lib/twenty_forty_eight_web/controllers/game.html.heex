@@ -1,25 +1,15 @@
 <h3 class="text-6xl font-medium leading-6 text-gray-900 pb-12">2048</h3>
 
-<div class="grid grid-cols-4 h-56 gap-4">
+<div class="grid grid-cols-4 gap-4 pb-12">
 
-  <.tile value={2048} />
-  <.tile value={2048} />
-  <.tile value={2048} />
-  <.tile value={2048} />
-
-  <.tile value={2048} />
-  <.tile value={2048} />
-  <.tile value={2048} />
-  <.tile value={2048} />
-
-  <.tile value={2048} />
-  <.tile value={2048} />
-  <.tile value={2048} />
-  <.tile value={2048} />
-
-  <.tile value={2048} />
-  <.tile value={2048} />
-  <.tile value={2048} />
-  <.tile value={2048} />
+  <%= for tile <- @board.data do %>
+    <.tile value={tile} />
+  <% end %>
 
 </div>
+
+<.button phx-click="move" value={:left}>Left</.button>
+<.button phx-click="move" value={:up}>Up</.button>
+<.button phx-click="move" value={:right}>Right</.button>
+<.button phx-click="move" value={:down}>Down</.button>
+
